@@ -1,0 +1,164 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2; /* Light gray background */
+    color: rgb(252, 245, 245); /* Black text */
+    vertical-align: middle;
+  }
+  .logo img {
+    height: 50px;
+    width: auto;
+  }
+  .police_logo{
+      border-radius: 55px;
+      margin-right: 5px;
+      border-color: rgb(39, 115, 182);
+  }
+  .police_logo1{
+    display: block;  
+  margin-left: auto;  
+  margin-right: auto; 
+  margin-top: 170px; 
+  margin-bottom: auto;
+  border: 8px ridge rgb(134, 134, 240);  
+  padding: 5px;  
+  font-size: 16px;
+  }
+
+  .header {
+    padding: 20px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+  }
+  .header2 {
+    padding: 20px;
+    text-align: center;
+    background: #e8f2f0;
+    color: rgb(30, 21, 21);
+    font-size: 20px;
+  }
+  .header1 {
+    padding: 50px;
+    text-align: center;
+    background: #d6dcdb;
+    color: white;
+    font-size: 10px;
+
+  }
+  .header1 {
+    text-align: center;
+}
+.header1 h1 {
+    margin-bottom: 30px;
+}
+.header1 button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 20px; /* Adjust padding for button size */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+  width: calc(100% / 3 - 12px); /* Calculate width for three buttons in a row */
+  max-width: 200px; /* Limit maximum width for consistent appearance */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.header1 button:hover{
+  background-color: #008204;
+
+}
+.headerButton {
+  background-color: #008204;
+  border-radius: 10px;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+  width: 250px; /* Updated width for better visibility */
+  box-sizing: border-box;
+}
+
+.headerButton:hover {
+  background-color: #4CAF50;
+}/* Styles for the header */
+header {
+  background-color: #222;
+  padding: 10px 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  margin-right: 20px;
+}
+
+.nav-list a {
+  color: #f8f8f2;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  text-shadow: 0 0 3px #8ce2e7;
+  padding: 10px 15px;
+}
+
+.nav-list a:hover {
+  background-color: #ddd;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #222;
+  color: white;
+  padding: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #222;
+  padding: 12px 16px;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}

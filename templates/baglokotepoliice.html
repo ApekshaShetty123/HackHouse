@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Police Performance & Resources Management</title>
+    <link rel="stylesheet" href="../static/css/bagalkotepolice.css" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <nav class="navbar">
+          <a href="#" class="logo">
+            <img
+              class="police_logo"
+              src="../static/image/ksp.jpg"
+              alt="Police Logo"
+            />
+          </a>
+          <div id="google_element"></div>
+          <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+          <script>
+            function loadGoogleTranslate() {
+              new google.translate.TranslateElement(
+                {
+                  pageLanguage: "en",
+                  includedLanguages: "kn,en",
+                  layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                },
+                "google_element"
+              );
+            }
+          </script>
+
+          <ul class="nav-list">
+            <li>
+              <a href="{{ url_for('home') }}" style="margin-top: 10px">Home</a>
+            </li>
+            <head>
+              <meta charset="UTF-8" />
+              <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0"
+              />
+              <title>Custom Dropdown Menu</title>
+              <link rel="stylesheet" href="static/css/home.css" />
+            </head>
+            <body>
+              <div class="dropdown">
+                <button onclick="toggleDropdown()" class="dropbtn" style="font-weight: bold;font-size: 14px;">
+                  About Us
+                </button>
+                <div id="myDropdown" class="dropdown-content">
+                  <a href="{{ url_for('vision') }}">Vision</a>
+                  <a href="{{ url_for('history') }}">History</a>
+                </div>
+              </div>
+              <script src="static/js/main.js"></script>
+            </body>
+            <li>
+              <a href="{{ url_for('contactus') }}">Contact</a>
+            </li>
+            <li>
+              <a href="{{ url_for('login') }}">Login</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div style="height: 710px; border: solid; background-color: #b5da9a">
+      <h1 align="center" style="font-size: 50px; padding-top: 20px">
+        {{ district.replace("-", " ")}} Unit Stations
+      </h1>
+      <div class="header1">
+        {% for station in ps %}
+        <button onclick="handleClick('{{ district }}', '{{ station }}')">
+          {{ station }}
+        </button>
+        {% endfor %}
+      </div>
+    </div>
+    <script>
+      function handleClick(dist, station) {
+        localStorage.setItem("station", station.replace(/ /g, "-"));
+        window.location.href = `/${dist}/stations/${station.replace(
+          / /g,
+          "-"
+        )}`;
+      }
+    </script>
+  </body>
+</html>

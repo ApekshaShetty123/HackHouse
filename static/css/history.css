@@ -1,0 +1,105 @@
+/* Styles for the header */
+header {
+  background-color: #222;
+  padding: 10px 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  margin-right: 20px;
+}
+
+.nav-list a {
+  color: #f8f8f2;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  text-shadow: 0 0 3px #8ce2e7;
+  padding: 10px 15px;
+}
+
+.nav-list a:hover {
+  background-color: #ddd;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #222;
+  color: white;
+  padding: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #222;
+  padding: 12px 16px;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  color: black;
+  vertical-align: middle;
+}
+
+.container {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the headings inside the container */
+.container h1 {
+  color: black; /* Changed heading color to black */
+  font-size: 50px;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* Styles for the paragraphs inside the container */
+.container p {
+  text-align: justify;
+  margin-bottom: 15px;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <header>
+      <div id="google_element"></div>
+<script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+<script>
+    function loadGoogleTranslate(){
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'kn,en',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_element');
+    }
+</script>
+    </header>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5; /* Set background color */
+      }
+
+      h1 {
+        text-align: center;
+        color: #333; /* Set heading color */
+        margin-top: 30px; /* Add some top margin */
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        margin-top: 20px; /* Add some top margin */
+      }
+
+      li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+
+      li a {
+        text-decoration: none;
+        color: #333;
+        padding: 8px 15px; /* Add padding to links */
+        border-radius: 5px; /* Add border radius */
+        transition: background-color 0.3s; /* Add transition effect */
+      }
+
+      li a:hover {
+        color: #fff; /* Change text color on hover */
+        background-color: #007bff; /* Change background color on hover */
+      }
+
+      img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+        margin-top: 30px; /* Add some top margin */
+        border-radius: 5px; /* Add border radius */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+        transition: transform 0.3s ease-in-out; /* Add transition effect */
+      }
+
+      img:hover {
+        transform: scale(1.05); /* Scale up image on hover */
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>{{ heading }}</h1>
+    <ul class="performance-links"></ul>
+    <div id="chart-container" style="text-align: center">
+      <!-- Chart will be rendered here onclick="window.location.href='/Bagalkot/response'"-->
+      {% if img %}
+      <img
+        class="chart-img"
+        src="data:image/png;base64,{{ img }}"
+        alt="Chart"
+      />
+      {% endif %}
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const dist = localStorage.getItem("district");
+        const performance = localStorage.getItem("performance");
+        const links = ["line", "pie", "histogram"];
+        const performanceLinks = document.querySelector(".performance-links");
+        console.log(performance);
+        links.forEach((link) => {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = `/${dist.replace(" ","-")}/${performance}/${link}`;
+          a.textContent =
+            link.charAt(0).toUpperCase() + link.slice(1) + " Chart";
+          li.appendChild(a);
+          performanceLinks.appendChild(li);
+        });
+      });
+    </script>
+  </body>
+</html>

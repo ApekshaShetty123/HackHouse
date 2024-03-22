@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Police Performance Metrics</title>
+    <header>
+      <div id="google_element"></div>
+<script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+<script>
+    function loadGoogleTranslate(){
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'kn,en',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_element');
+    }
+</script>
+    </header>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <h1>Police Performance Metrics</h1>
+    <form id="siForm">
+      <label for="siName">Enter Police Officer's Name:</label>
+      <input type="text" id="siName" name="siName" required />
+      <button type="submit">Calculate Performance</button>
+    </form>
+    <div id="results"></div>
+    <!-- Add canvas element for the chart -->
+    <canvas id="performanceChart" width="400" height="200"></canvas>
+
+    <script>
+      document
+        .getElementById("siForm")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const dist = localStorage.getItem("district");
+          const station = localStorage.getItem("station");
+          const siName = document.getElementById("siName").value;
+          console.log(siName);
+          await fetch(`/${dist}/stations/${station}`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name: siName }),
+          })
+            .then(async (response) => await response.json())
+            .then(async (data) => {
+              console.log(data);
+              document.getElementById("results").innerHTML = `
+                    <p>Total Cases: ${data.Total_Cases}</p>
+                    <p>Resolved Cases: ${data.Resolved_Cases}</p>
+                    <p>Conviction Cases: ${data.Conviction_Cases}</p>
+                    <p>Case Resolution Rate: ${data.Case_Resolution_Rate.toFixed(
+                      2
+                    )}%</p>
+                    <p>Conviction Rate: ${data.Conviction_Rate.toFixed(2)}%</p>
+                    <p>Average Response Time: ${data.Average_Response_Time.toFixed(
+                      2
+                    )} hours</p>
+                    <p>Efficiency in Investigation: ${data.Efficiency_Investigation.toFixed(
+                      2
+                    )}%</p>
+                `;
+              // Create a bar chart
+              await createBarChart(data);
+            })
+            .catch((error) => {
+              console.error("Error fetching data:", error);
+            });
+        });
+
+      function createBarChart(data) {
+        const ctx = document
+          .getElementById("performanceChart")
+          .getContext("2d");
+        const chart = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: [
+              "Total Cases",
+              "Resolved Cases",
+              "Conviction Cases",
+              "Case Resolution Rate",
+              "Conviction Rate",
+              "Average Response Time",
+              "Efficiency in Investigation",
+            ],
+            datasets: [
+              {
+                label: "Performance Metrics",
+                data: [
+                  data.Total_Cases,
+                  data.Resolved_Cases,
+                  data.Conviction_Cases,
+                  data.Case_Resolution_Rate,
+                  data.Conviction_Rate,
+                  data.Average_Response_Time,
+                  data.Efficiency_Investigation,
+                ],
+                backgroundColor: [
+                  "rgba(255, 99, 132, 0.5)",
+                  "rgba(54, 162, 235, 0.5)",
+                  "rgba(255, 206, 86, 0.5)",
+                  "rgba(75, 192, 192, 0.5)",
+                  "rgba(153, 102, 255, 0.5)",
+                  "rgba(255, 159, 64, 0.5)",
+                  "rgba(54, 162, 235, 0.5)",
+                ],
+                borderColor: [
+                  "rgba(255, 99, 132, 1)",
+                  "rgba(54, 162, 235, 1)",
+                  "rgba(255, 206, 86, 1)",
+                  "rgba(75, 192, 192, 1)",
+                  "rgba(153, 102, 255, 1)",
+                  "rgba(255, 159, 64, 1)",
+                  "rgba(54, 162, 235, 1)",
+                ],
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      }
+    </script>
+  </body>
+</html>

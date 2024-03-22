@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Performance & Resources Management</title>
+    <link rel="stylesheet" href="../static/css/home.css" />
+    <style>
+        /* Center the container horizontally and vertically */
+        .center-container {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center; /* Center text horizontally */
+            color: #0f0202;
+        }
+
+        /* Style the button */
+        .scroll-down-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            display: none; /* Initially hidden */
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <img class="police_logo" src="static/image/ksp.jpg" alt="Police Logo">
+                </a>
+                <div id="google_element"></div>
+                <ul class="nav-list">
+                    <li>
+                        <a href="{{ url_for('home') }}" style="margin-top: 10px;">Home</a>
+                    </li>
+                    <div class="dropdown">
+                        <button onclick="toggleDropdown()" class="dropbtn" style="font-weight: bold;font-size: 14px;">
+                            About Us</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="{{ url_for('vision') }}">Vision</a>
+                            <a href="{{ url_for('history') }}">History</a>
+                        </div>
+                    </div>
+                    <li>
+                        <a href="{{ url_for('contactus') }}">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- POLICE RESOURCE MANAGEMENT 1 PAGE -->
+    <div style="height: 710px; border: solid; background-color: #26ad7d">
+        <h1 align="center" style="font-size: 50px; padding-top: 100px">
+            POLICE PERFORMANCE AND RESOURCE MANAGEMENT
+        </h1>
+        <img class="police_logo1" src="../static/image/ksp.jpg" />
+        <div
+            style="
+                height: 50px;
+                border: solid;
+                background-color: #5775b9;
+                margin-top: 100px;
+                padding-bottom: 20px;
+            "
+        >
+            <h1 align="center" style="font-size: 30px">KARNATAKA STATE POLICE</h1>
+        </div>
+    </div>
+
+    <!-- POLICE DISTRICT 2 PAGE -->
+    <div style="height: 710px; border: solid; background-color: #26ad7d">
+        <div class="center-container1">
+            <h2 align="center" style="font-size: 50px; padding-top: 100px">
+                DISTRICTS
+            </h2>
+        </div>
+
+        <!-- Button to scroll down -->
+        <button class="scroll-down-btn" onclick="scrollPage()">
+            Scroll Down
+        </button>
+        <!-- District -->
+        <div class="header1"></div>
+    </div>
+
+    <!-- Scroll Up Button -->
+    <button id="scrollToTopBtn" title="Go to top">Scroll Up</button>
+
+    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <script>
+        function loadGoogleTranslate() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'kn,en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_element');
+        }
+
+        function toggleDropdown() {
+            var dropdownContent = document.getElementById("myDropdown");
+            dropdownContent.classList.toggle("show");
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        // Array of districts
+        const districts = [
+            "Bagalkot",
+            "Ballari",
+            "Belagavi City",
+            "Belagavi Dist",
+            "Bengaluru City",
+            "Bengaluru Dist",
+            "Bidar",
+            "Chamarajanagar",
+            "Chickballapura",
+            "Chikkamagaluru",
+            "Chitradurga",
+            "CID",
+            "Coastal Security Police",
+            "Dakshina Kannada",
+            "Davanagere",
+            "Dharwad",
+            "Gadag",
+            "Hassan",
+            "Haveri",
+            "Hubballi Dharwad City",
+            "ISD Bengaluru",
+            "K.G.F",
+            "Kalaburagi",
+            "Kalaburagi City",
+            "Karnataka Railways",
+            "Kodagu",
+            "Kolar",
+            "Koppal",
+            "Mandya",
+            "Mangaluru City",
+            "Mysuru City",
+            "Mysuru Dist",
+            "Raichur",
+            "Ramanagara",
+            "Shivamogga",
+            "Tumakuru",
+            "Udupi",
+            "Uttara Kannada",
+            "Vijayanagara",
+            "Vijayapur",
+            "Yadgir",
+        ];
+
+        // Function to handle button click and
+
+
+        // Function to handle button click and redirect
+        function handleRedirect(dist) {
+            localStorage.setItem("district", dist);
+            const route = dist.replace(" ", "-");
+            window.location.href =  `/${route}`;
+        }
+
+        // Get the container to append buttons
+        const districtButtonsContainer = document.querySelector(".header1");
+
+        // Loop through districts array and create buttons
+        districts.forEach((dist) => {
+            const button = document.createElement("button");
+            button.textContent = dist;
+            button.onclick = () => handleRedirect(dist);
+            districtButtonsContainer.appendChild(button);
+        });
+    </script>
+    <script src="../static/js/home.js"></script>
+</body>
+
+</html>

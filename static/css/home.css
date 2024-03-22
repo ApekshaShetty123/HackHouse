@@ -1,0 +1,248 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2; /* Light gray background */
+  color: rgb(252, 245, 245); /* Black text */
+  vertical-align: middle;
+}
+
+header {
+  background-color: #222; /* Black header */
+  padding: 10px 20px;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: middle;
+  }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.center-container{
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; /* Center text horizontally */
+  color: #0f0202;
+}
+
+/* Style the button */
+.scroll-down-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: none; /* Initially hidden */
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0; /* Move buttons to the right side */
+}
+
+.nav-list li {
+  margin-right: 20px; /* Adjusted margin for spacing between items */
+}
+
+.nav-list a {
+  transition: color 0.3s;
+  color: #f8f8f2;
+  text-decoration: none;
+  font-size: 14px;
+  text-shadow: 0 0 3px #8ce2e7;
+  font-weight: bold;
+/* Add transition effect for color change */
+}
+.nav-list a:hover {
+  background-color: #ddd;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #222;
+  color: white;
+  padding: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+
+.dropdown-content a {
+  color: #222;
+  padding: 12px 16px;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+.show {
+  display: block;
+}
+
+
+.search-bar {
+
+  border: 3px solid #00B4CC;
+
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px  ;
+  outline: none;
+  color: #9DBFAF;
+  margin-top: 10px;
+ margin-right: 750px;
+ box-shadow: 2px 2px 2px rgb(140, 226, 231);
+font-size: large;
+font-weight: bolder;
+
+  
+}
+.search-bar:hover{
+  background-color: #505d64;
+  color: white;
+  text-transform: 1s;
+
+  box-shadow: 2px 2px 2px rgb(140, 226, 231);
+}
+.police_logo{
+    border-radius: 55px;
+    margin-right: 5px;
+    border-color: rgb(39, 115, 182);
+}
+.police_logo1{
+  display: block;  
+margin-left: auto;  
+margin-right: auto; 
+margin-top: 100px; 
+margin-bottom: auto;
+border: 8px ridge rgb(134, 134, 240);  
+padding: 5px;  
+font-size: 16px;
+
+}
+
+
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+  margin-top: 10px;
+  margin-right: 750px;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 34px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.header1 {
+  padding: 30px;
+  text-align: center;
+  background: #26ad7d;
+  color: white;
+  font-size: 10px;
+}
+
+.header1 h1 {
+  margin-bottom: 10px;
+}
+
+.header1 button {
+  background-color: #004f03;
+  border: none;
+  color: white;
+  padding: 20px; /* Adjust the padding to make all buttons the same size */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+  width:20%;
+  height:45%;
+}
+.header1 :hover{
+  background-color: #0e6410;
+
+}
+
+/* Styles for the scroll-up button */
+#scrollToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+}
+
+#scrollToTopBtn:hover {
+  background-color: #555;
+}
