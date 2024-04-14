@@ -10,8 +10,8 @@ The creation of an analytical dashboard for police performance and resource mana
 • Through these visualization methods, stakeholders can swiftly identify trends and patterns, aiding in informed decision-making and improving police performance and resource allocation.
 
 Installation:
-pip install pandas
-pip install Flask mysql-connector-python,pip install Flask,pip install flask_mysqldb,pip install matplotlib,
+pip install pandas,
+pip install Flask, mysql-connector-python,pip install Flask,pip install flask_mysqldb,pip install matplotlib,
 pip install seaborn, pip install numpy
 
 Dataset: Copy of FIR_Details_Data.csv
