@@ -9,7 +9,7 @@ The creation of an analytical dashboard for police performance and resource mana
 • Interactive elements such as filters and tooltips enhance user experience, facilitating deeper data exploration. 
 • Through these visualization methods, stakeholders can swiftly identify trends and patterns, aiding in informed decision-making and improving police performance and resource allocation.
 
-Installation:
+Installations:
 pip install pandas,
 pip install Flask, mysql-connector-python,pip install Flask,pip install flask_mysqldb,pip install matplotlib,
 pip install seaborn, pip install numpy
@@ -19,5 +19,7 @@ Dataset: Copy of FIR_Details_Data.csv
 Database:Used mysql database for registration and login. 
 create database ksp;
 create table users with first_name,last_name,email and password as tuples.
+
+How to run : flask run
 
 
